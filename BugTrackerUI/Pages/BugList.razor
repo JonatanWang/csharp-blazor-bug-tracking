@@ -9,9 +9,12 @@
         </tr>
     </thead>
 
-    foreach(Bug bug in Bugs) {
+    @foreach(var bug in Bugs) {
         <tr>
-            <td>bug</td>
+            <td>@bug.Id</td>
+            <td>@bug.Title</td>
+            <td>@bug.Description</td>
+            <td>@bug.Priority</td>
         </tr>
     }
 </table>
@@ -21,7 +24,7 @@
     [Inject]
     public IBugService BugService { get; set;}
 
-    public List<Bug> Bugs;
+    public List<Bug> Bugs { get; set; }
 
     protected override void OnInitialized()
     {
